@@ -19,20 +19,23 @@ public class Calculator {
         for (int i=0; i<words.length; i++){
             int preNum = 0;
             int postNum = 0;
-    
-            // 2. 숫자면 push
-            try{
-                stack.push(Integer.parseInt(words[i]));
-            }catch(Exception e){
-                // 3. 연산자면 pop(), pop()
-                preNum = stack.pop();
-                postNum = stack.pop();
-                // 4. 연산자 판단 후 연산을 반환 받아 스택에 다시 집어넣기
-                stack.push(operation(preNum, postNum, words[i]));
-            }
+            exception(preNum, postNum, words, i);
         }
         
         return stack.pop();
+    }
+
+    private void exception(int preNum, int postNum, String[] words, int index){
+        try{
+            // 2. 숫자면 push
+            stack.push(Integer.parseInt(words[index]));
+        }catch(Exception e){
+            // 3. 연산자면 pop(), pop()
+            preNum = stack.pop();
+            postNum = stack.pop();
+            // 4. 연산자 판단 후 연산을 반환 받아 스택에 다시 집어넣기
+            stack.push(operation(preNum, postNum, words[index]));
+        }
     }
 
     private int operation(int preNum, int postNum, String operation){
@@ -44,7 +47,7 @@ public class Calculator {
         }else if (operation.equals("*")){
             result = preNum * postNum;
         }else if (operation.equals("/")){
-            result = preNum > postNum ? preNum / postNum : postNum / preNum;
+            result = Math.max(preNum, postNum) / Math.min(preNum, postNum);
         }
         return result;
     }

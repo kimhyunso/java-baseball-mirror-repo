@@ -1,9 +1,7 @@
 package baseballGame;
-public class ResultView {
 
-
-    
-
+public class BaseballEqual {
 
     
+
 }
