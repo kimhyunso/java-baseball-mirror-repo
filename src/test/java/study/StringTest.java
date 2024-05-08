@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.withPrecision;
+
+import org.assertj.core.data.Offset;
 
 public class StringTest {
     @Test
@@ -38,6 +41,11 @@ public class StringTest {
             char str = input.charAt(index);
         }).isInstanceOf(StringIndexOutOfBoundsException.class)
         .hasMessageContaining("String index out of range: 4");
+    }
+
+    @Test
+    void test(){
+        assertThat(5.1).isEqualTo(5, withPrecision(1d));
     }
 
 
