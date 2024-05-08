@@ -5,7 +5,9 @@ import java.util.Random;
 public class BaseballGame {
     private int[] baseballGame = new int[3];
     private int[] predict = new int[3];
+    private boolean[] result = new boolean[3];
     private Random random = new Random();
+    private ResultView resultView;
 
     public BaseballGame(){
         for (int i=0; i<baseballGame.length; i++)
@@ -26,13 +28,14 @@ public class BaseballGame {
 
     public void startGame(){
         for (int i=0; i<baseballGame.length; i++){
-            equalsTo(i);
+            // 1. baseballGame의 위치와 숫자가 일치하는지 확인 일치하면 result에 true
+
+
+            // 2. 위치는 일치하지 않는데 숫자가 일치하는 경우
+
         }
+
+
     }
 
-    private void equalsTo(int index){
-        if (baseballGame[index] == predict[index]){
-            
-        }
-    }
 }
