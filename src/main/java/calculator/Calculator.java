@@ -1,41 +1,25 @@
-package study;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.Scanner;
+package calculator;
 import java.util.Stack;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 public class Calculator {
+    public static Stack<Integer> stack = new Stack<Integer>();
+    private String[] words;
 
-    Scanner input;
-    String value;
-
-    
-    @BeforeEach
-    void setUp(){
-        value = "6 + 6 / 2 - 3";
+    public Calculator(String value){
+        words = value.split(" ");
     }
 
-    @Test
-    void stringCalculator(){
-        String[] words = value.split(" ");
-        int wordsLeng = words.length-1;
-        Stack<Integer> stack = new Stack<Integer>();
-        int result = 0;
-
+    public int result(){
         // 1. 정렬 2 3 + 4 * 2 /
         // (1,2) (3,4) (5,6)
-        for (int i=1; i<wordsLeng; i+=2){
+        for (int i=1; i<words.length-1; i+=2){
             swap(words, i, i+1);
         }
 
-        for (int i=0; i<=wordsLeng; i++){
+        for (int i=0; i<words.length; i++){
             int preNum = 0;
             int postNum = 0;
-
+    
             // 2. 숫자면 push
             try{
                 stack.push(Integer.parseInt(words[i]));
@@ -47,8 +31,8 @@ public class Calculator {
                 stack.push(operation(preNum, postNum, words[i]));
             }
         }
-        result = stack.pop();
-        assertThat(result).isEqualTo(3);
+        
+        return stack.pop();
     }
 
     private int operation(int preNum, int postNum, String operation){
@@ -71,5 +55,5 @@ public class Calculator {
         words[pre] = words[post];
         words[post] = temp;
     }
-    
+
 }
