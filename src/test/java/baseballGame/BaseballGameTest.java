@@ -21,7 +21,6 @@ public class BaseballGameTest {
     @ParameterizedTest
     @ValueSource(ints={1, 2, 3})
     void baseBallGame(int ballNumber){
-        // 1. 자리가 같고, 숫자가 같으면 스트라이크
 
     }
     

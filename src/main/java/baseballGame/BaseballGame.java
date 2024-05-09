@@ -25,14 +25,8 @@ public class BaseballGame {
     }
 
     public void startGame(){
-        for (int i=0; i<baseballGame.length; i++){
-            equalsTo(i);
-        }
-    }
 
-    private void equalsTo(int index){
-        if (baseballGame[index] == predict[index]){
-            
-        }
+    
+
     }
 }
