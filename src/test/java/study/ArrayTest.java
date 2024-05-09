@@ -31,7 +31,8 @@ public class ArrayTest {
         .isNotEmpty()
         .contains("1")
         .doesNotContainNull() // null을 포함하고 있지 않고
-        .containsSequence("2", "3"); // "2", "3" 순서대로 요소를 포함하고 있는 부분이 있는지 확인
+        .containsSequence("2", "3"); 
+        // "2", "3" 순서대로 요소를 포함하고 있는 부분이 있는지 확인
     }
 
 
