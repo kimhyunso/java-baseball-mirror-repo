@@ -12,12 +12,10 @@ public class BaseBallTest {
     @Test
     @DisplayName("유효성검사 입력값 1~9")
     void 유효성검사_입력값이1에서9까지(){
-        ValidationCheck check = new ValidationCheck();
-        assertThat(check.valid(1)).isTrue();
-        assertThat(check.valid(0)).isFalse();
-        assertThat(check.valid(10)).isFalse();
-        assertThat(check.valid(-20)).isFalse();
+        assertThat(ValidationCheck.valid(1)).isTrue();
+        assertThat(ValidationCheck.valid(0)).isFalse();
+        assertThat(ValidationCheck.valid(10)).isFalse();
+        assertThat(ValidationCheck.valid(-20)).isFalse();
     }
-
 
 }
