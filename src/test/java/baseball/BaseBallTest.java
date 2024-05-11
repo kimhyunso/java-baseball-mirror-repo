@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class BaseBallTest {
@@ -34,5 +36,18 @@ public class BaseBallTest {
         boolean result = ValidationCheck.isThreeWord(input);
         assertThat(result).isTrue();
     }
+
+    @DisplayName("같은 수가 전혀 없음 - 낫싱")
+    @Test
+    void 낫싱(){
+        Computer computer = new Computer(Arrays.asList(1, 2, 3));
+        Player player = new Player(Arrays.asList(7, 8, 9));
+
+        BaseBall baseBall = new BaseBall(computer);
+        BaseBallStatus status = baseBall.play(player);
+        assertThat(status).isEqualTo(BaseBallStatus.NOTHING);
+    }
+
+
 
 }
