@@ -1,20 +1,17 @@
 package baseball;
 
+import java.util.List;
+
 public class Computer {
 
-    private final int position;
-    private final int number;
+    private final List<?> balls;
 
-    public Computer(int position, int number) {
-        this.position = position;
-        this.number = number;
+    public <T> Computer(List<T> balls) {
+        this.balls = balls;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    public int getNumber() {
-        return number;
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

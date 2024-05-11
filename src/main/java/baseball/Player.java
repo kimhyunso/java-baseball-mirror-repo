@@ -1,17 +1,13 @@
 package baseball;
 
-public class Player {
-    private final int position;
-    private final int number;
+import java.util.List;
 
-    public Player(int position, int number) {
-        this.position = position;
-        this.number = number;
+public class Player {
+
+    private final List<?> predict;
+
+    public <T> Player(List<T> predict) {
+        this.predict = predict;
     }
-    public int getPosition() {
-        return position;
-    }
-    public int getNumber() {
-        return number;
-    }
+
 }
