@@ -8,15 +8,16 @@ public class BaseBall {
     }
 
     public BallStatus play(Player player) {
-        if (isEquals(player)){
+        if (isMatchAll(player)){
             return BallStatus.STRIKE;
         }
 
         return BallStatus.NOTHING;
     }
 
-    private boolean isEquals(Player player) {
-        return com.equals(player);
+    private boolean isMatchAll(Player player) {
+        return com.matchAll(player);
     }
+
 
 }

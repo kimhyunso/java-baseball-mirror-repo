@@ -13,7 +13,7 @@ e.g. 상대방(컴퓨터)의 수가 425일 때, 123을 제시한 경우 : 1스�
 
 -- Util적인 것을 찾아보기
 1. 입력된 숫자가 3개인지 판단하기 : isThreeWord()#ValidationCheck
-
+2. 입력된 숫자가 1에서 9까지의 숫자인지 판단하기 : isCorrect()#ValidationCheck
 
 1. 컴퓨터는 1에서 9까지 임의의 수 3개를 생성한다. : generator()#Computer
  - 컴퓨터는 숫자와 position을 갖고있다.

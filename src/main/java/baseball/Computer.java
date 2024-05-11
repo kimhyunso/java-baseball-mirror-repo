@@ -1,6 +1,7 @@
 package baseball;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Computer {
 
@@ -10,8 +11,11 @@ public class Computer {
         this.balls = balls;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public List<?> getBalls() {
+        return balls;
+    }
+
+    public boolean matchAll(Player player) {
+        return player.getPredict().containsAll(this.balls);
     }
 }

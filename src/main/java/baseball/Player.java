@@ -10,4 +10,7 @@ public class Player {
         this.predict = predict;
     }
 
+    public List<?> getPredict() {
+        return predict;
+    }
 }

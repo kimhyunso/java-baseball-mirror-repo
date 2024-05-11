@@ -14,7 +14,7 @@ public class BaseBallTest {
     @Test
     void 낫싱(){
         Computer com = new Computer(Arrays.asList(1, 2, 3));
-        Player player = new Player(Arrays.asList(1, 2, 3));
+        Player player = new Player(Arrays.asList(7, 8, 9));
         BaseBall baseBall = new BaseBall(com);
         BallStatus status = baseBall.play(player);
         assertThat(status).isEqualTo(BallStatus.NOTHING);
