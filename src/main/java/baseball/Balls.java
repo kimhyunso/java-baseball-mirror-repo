@@ -32,6 +32,7 @@ public class Balls {
             playCount(userBalls.play(ball));
         }
 
+
         return new BaseBallReport(strikeCount, ballCount);
     }
 
