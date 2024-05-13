@@ -23,4 +23,12 @@ public class BaseBallTest {
         assertThat(status).isEqualTo(BaseBallStatus.BALL);
     }
 
+    @DisplayName("입력된 숫자와 위치가 같은 스트라이크")
+    @Test
+    void strike(){
+        Ball ball = new Ball(1, 2);
+        BaseBallStatus status = ball.play(new Ball(1, 2));
+        assertThat(status).isEqualTo(BaseBallStatus.STRIKE);
+    }
+
 }
