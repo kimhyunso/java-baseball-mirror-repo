@@ -9,8 +9,15 @@ public class Ball {
         this.number = number;
     }
 
-    public BaseBallStatus play(Ball ball) {
+    public BaseBallStatus play(Ball userBall) {
+        if (isBall(userBall)){
+            return BaseBallStatus.BALL;
+        }
 
         return BaseBallStatus.NOTHING;
+    }
+
+    private boolean isBall(Ball userBall) {
+        return userBall.number == number;
     }
 }
