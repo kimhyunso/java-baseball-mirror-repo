@@ -1,40 +1,37 @@
 package baseball;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class BaseBallTest {
 
-    private Ball ball;
+    @DisplayName("입력된 숫자가 위치와 숫자가 같은 3스트라이크")
+    @Test
+    void 스크라이크_3(){
+        Balls comBalls = new Balls(Arrays.asList(1, 2, 3));
+        BaseBallReport report = comBalls.play(new Balls(Arrays.asList(1, 2, 3)));
+        assertThat(report.print()).isEqualTo("0볼 3스트라이크");
+    }
 
-    @BeforeEach
-    void setUp(){
-        ball = new Ball(1, 2);
+    @DisplayName("입력된 숫자가 위치와 숫자가 같은 3볼")
+    @Test
+    void 볼_2_스트라이크_1(){
+        Balls comBalls = new Balls(Arrays.asList(1, 2, 3));
+        BaseBallReport report = comBalls.play(new Balls(Arrays.asList(2, 1, 3)));
+        assertThat(report.print()).isEqualTo("2볼 1스트라이크");
     }
 
 
-    @DisplayName("입력된 숫자가 일치하지 않는 낫싱")
+    @DisplayName("입력된 숫자가 위치와 숫자가 같지 않은 낫싱")
     @Test
-    void nothing(){
-        BaseBallStatus status = ball.play(new Ball(1, 5));
-        assertThat(status).isEqualTo(BaseBallStatus.NOTHING);
-    }
-
-    @DisplayName("입력된 숫자가 값은 같은데 위치가 다른 볼")
-    @Test
-    void ball(){
-        BaseBallStatus status = ball.play(new Ball(2, 2));
-        assertThat(status).isEqualTo(BaseBallStatus.BALL);
-    }
-
-    @DisplayName("입력된 숫자와 위치가 같은 스트라이크")
-    @Test
-    void strike(){
-        BaseBallStatus status = ball.play(new Ball(1, 2));
-        assertThat(status).isEqualTo(BaseBallStatus.STRIKE);
+    void 낫싱(){
+        Balls comBalls = new Balls(Arrays.asList(1, 2, 3));
+        BaseBallReport report = comBalls.play(new Balls(Arrays.asList(7, 8, 9)));
+        assertThat(report.print()).isEqualTo("낫싱");
     }
 
 }
