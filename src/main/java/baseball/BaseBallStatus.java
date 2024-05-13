@@ -1,5 +1,9 @@
 package baseball;
 
 public enum BaseBallStatus {
-    BALL, STRIKE, NOTHING
+    BALL, STRIKE, NOTHING;
+
+    public boolean isNotNothing() {
+        return this != BaseBallStatus.NOTHING;
+    }
 }
