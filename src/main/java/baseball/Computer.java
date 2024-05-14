@@ -15,7 +15,12 @@ public class Computer {
     public Computer(){
         List<Integer> numbers = new ArrayList<>();
         for (int i = MIN_LENGTH; i < MAX_LENGTH; i++) {
-            numbers.add(random.nextInt(RANDOM_NUMBER) + 1);
+            int randomNum = random.nextInt(RANDOM_NUMBER) + 1;
+
+            if (!numbers.contains(randomNum)){
+                numbers.add(randomNum);
+            }
+
         }
         comBalls = new Balls(numbers);
     }

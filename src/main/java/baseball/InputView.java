@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 public class InputView {
     public static void main(String[] args) {
+        Computer computer = new Computer();
+        Balls comBalls = computer.generator();
+        List<Integer> userList = new ArrayList<>();
+
         while (true){
-            Computer computer = new Computer();
-            Balls comBalls = computer.generator();
-            List<Integer> userList = new ArrayList<>();
             Scanner input = new Scanner(System.in);
 
             System.out.print("세자리를 입력해주세요 : ");

@@ -2,10 +2,8 @@ package baseball;
 
 public class BaseBallReport {
 
-    private int strikeCount = 0;
-    private int ballCount = 0;
-    private String message = "";
-
+    private final int strikeCount;
+    private final int ballCount;
     public BaseBallReport(int strikeCount, int ballCount) {
         this.strikeCount = strikeCount;
         this.ballCount = ballCount;
@@ -14,7 +12,7 @@ public class BaseBallReport {
     @Override
     public String toString() {
 
-        message = String.format("%d볼 %d스트라이크", ballCount, strikeCount);
+        String message = String.format("%d볼 %d스트라이크", this.ballCount, this.strikeCount);
         if (isZero())
             message = "낫싱";
 
@@ -22,6 +20,6 @@ public class BaseBallReport {
     }
 
     private boolean isZero() {
-        return strikeCount == 0 && ballCount == 0;
+        return this.strikeCount == 0 && this.ballCount == 0;
     }
 }

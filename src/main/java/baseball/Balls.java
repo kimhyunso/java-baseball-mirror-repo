@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 public class Balls {
     private final List<Ball> comBalls;
     private final AtomicInteger index = new AtomicInteger(1);
-    private int strikeCount = 0;
-    private int ballCount = 0;
 
     public Balls(List<Integer> balls) {
         comBalls = balls.stream()
@@ -28,14 +26,17 @@ public class Balls {
     }
 
     public BaseBallReport play(Balls userBalls) {
+        int strikeCount = 0;
+        int ballCount = 0;
+
         for (Ball ball : this.comBalls){
             BaseBallStatus  status = userBalls.play(ball);
             if (status.isStrike()){
-                this.strikeCount ++;
+                strikeCount ++;
             }
 
             if (status.isBall()){
-                this.ballCount ++;
+                ballCount ++;
             }
         }
 
