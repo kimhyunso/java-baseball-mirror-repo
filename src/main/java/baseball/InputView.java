@@ -19,11 +19,10 @@ public class InputView {
             if (!ValidationCheck.isThreeWord(line))
                 throw new IllegalArgumentException("세자리의 숫자가 아닙니다.");
 
-
             String []splitNumber = line.split("");
             addUserList(userList, splitNumber);
 
-            BaseBallReport report = comBalls.play(new Balls(userList));
+            BaseBallReport report = comBalls.play(userList);
             System.out.println(report);
         }
     }
