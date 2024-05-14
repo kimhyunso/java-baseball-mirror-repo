@@ -29,22 +29,17 @@ public class Balls {
 
     public BaseBallReport play(Balls userBalls) {
         for (Ball ball : this.comBalls){
-            playCount(userBalls.play(ball));
-        }
+            BaseBallStatus  status = userBalls.play(ball);
+            if (status.isStrike()){
+                this.strikeCount ++;
+            }
 
+            if (status.isBall()){
+                this.ballCount ++;
+            }
+        }
 
         return new BaseBallReport(strikeCount, ballCount);
     }
-
-    private void playCount (BaseBallStatus status){
-        if (status.isStrike()){
-            this.strikeCount ++;
-        }
-
-        if (status.isBall()){
-            this.ballCount ++;
-        }
-    }
-
 
 }

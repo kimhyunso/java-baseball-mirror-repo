@@ -7,8 +7,9 @@ public class Ball {
     private final int number;
 
     public Ball(int position, int number) {
+        Number numeric = new Number(number);
         this.position = position;
-        this.number = number;
+        this.number = numeric.getNumber();
     }
 
     public BaseBallStatus play(Ball userBall) {

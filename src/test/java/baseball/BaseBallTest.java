@@ -38,5 +38,4 @@ public class BaseBallTest {
         BaseBallReport report = comBalls.play(new Balls(Arrays.asList(7, 8, 9)));
         assertThat(report).hasToString("낫싱");
     }
-
 }
