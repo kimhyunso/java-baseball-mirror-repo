@@ -24,7 +24,7 @@ public class BaseBallTest {
         assertThat(report).hasToString("0볼 3스트라이크");
     }
 
-    @DisplayName("입력된 숫자가 위치와 숫자가 같은 3볼")
+    @DisplayName("입력된 숫자가 위치와 숫자가 같은 2볼 1스트라이크")
     @Test
     void 볼_2_스트라이크_1(){
         BaseBallReport report = comBalls.play(Arrays.asList(2, 1, 3));
@@ -35,7 +35,7 @@ public class BaseBallTest {
     @DisplayName("입력된 숫자가 위치와 숫자가 같지 않은 낫싱")
     @Test
     void 낫싱(){
-        BaseBallReport report = comBalls.play(Arrays.asList(7, 8, 9));
+        BaseBallReport report = comBalls.play(Arrays.asList(9, 8, 5));
         assertThat(report).hasToString("낫싱");
     }
 }

@@ -27,21 +27,12 @@ public class Balls {
     }
 
         public BaseBallReport play(List<Integer> userBalls) {
-        int strikeCount = 0;
-        int ballCount = 0;
-
+        BaseBallReport result = new BaseBallReport();
         for (int i=0; i<3; i++){
             BaseBallStatus  status = this.play(new Ball(i+1, userBalls.get(i)));
-            if (status.isStrike()){
-                strikeCount ++;
-            }
-
-            if (status.isBall()){
-                ballCount ++;
-            }
+            result.report(status);
         }
-
-        return new BaseBallReport(strikeCount, ballCount);
+        return result;
     }
 
 }
