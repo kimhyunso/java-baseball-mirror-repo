@@ -1,5 +1,6 @@
 package baseball;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -25,22 +26,13 @@ public class Balls {
                 .orElse(BaseBallStatus.NOTHING);
     }
 
-    public BaseBallReport play(Balls userBalls) {
-        int strikeCount = 0;
-        int ballCount = 0;
-
-        for (Ball ball : this.comBalls){
-            BaseBallStatus  status = userBalls.play(ball);
-            if (status.isStrike()){
-                strikeCount ++;
-            }
-
-            if (status.isBall()){
-                ballCount ++;
-            }
+        public BaseBallReport play(List<Integer> userBalls) {
+        BaseBallReport result = new BaseBallReport();
+        for (int i=0; i<3; i++){
+            BaseBallStatus  status = this.play(new Ball(i+1, userBalls.get(i)));
+            result.report(status);
         }
-
-        return new BaseBallReport(strikeCount, ballCount);
+        return result;
     }
 
 }
